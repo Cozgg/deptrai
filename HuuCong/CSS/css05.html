@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+    <style>
+        .banner{
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 3px 3px 3px gray;
+            animation: change_background 10s infinite;
+        }
+        @keyframes change_background {
+            0%{
+                background-color: red; 
+                font-size: 2em;  
+            }
+            25%{
+                background-color: yellow; 
+                font-size: 1.5em;  
+            }
+            50%{
+                background-color: green; 
+                font-size: 1em;  
+            }
+            75%{
+                background-color: blue; 
+                font-size: 1.5em;  
+            }
+            100%{
+                background-color: orange; 
+                font-size: 2em;  
+            }
+        }
+        .frame{
+            width: 80%;
+            height: 300px;
+            margin: 0px auto;
+        }
+        .frame div{
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin: 50px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 3em;
+            color: brown;
+        }
+        .slider{
+            border: 5px solid brown;
+            animation: picture 5s infinite;
+        }
+        @keyframes picture {
+            0%{
+                background-image: url(../Images/1.jpg);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+            20%{
+                background-image: url(../Images/2.jpg);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+            40%{
+                background-image: url(../Images/3.jpg);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+            60%{
+                background-image: url(../Images/4.jpg);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+            80%{
+                background-image: url(../Images/5.jpg);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+            100%{
+                background-image: url(../Images/6.jpg);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+        .round1{
+            border: 5px dashed blue;
+            border-radius: 0px 30px;
+            background-color: lightgoldenrodyellow;
+        }
+        .round2{
+            border: 5px dotted blue;
+            border-radius: 30px 0px;
+            background-color: lightgoldenrodyellow;
+        }
+        .rotate{
+            background-color: aquamarine;
+            border: 5px solid antiquewhite;
+            animation: rotation 5s infinite;
+        }
+        @keyframes rotation {
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">BANNER</div>
+    <div class="frame">
+        <div class="slider">1</div>
+        <div class="round1">2</div>
+        <div class="round2">3</div>
+        <div class="rotate">rotate</div>
+    </div>
+</body>
+</html>
