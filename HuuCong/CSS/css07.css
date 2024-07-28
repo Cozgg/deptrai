@@ -1,0 +1,50 @@
+.banner{
+    height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 5px 5px 5px red;
+            background-image: url(../Images/backgrd.png);
+            background-repeat: repeat-x;
+            color: yellow
+}
+.nav{
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    background-color: rgb(4, 63, 139);
+}
+.menu li {
+    background-color: darkcyan;
+    display: inline-block;
+    width: 150px;
+    position: relative;
+  }
+  .menu a {
+    text-decoration: none;
+    display: block;
+    color: white;
+  }
+  .menu li .submenu {
+    display: none;
+    position: absolute;
+    padding-left: 0px;
+  }
+  .menu li:hover .submenu {
+    display: block;
+  }
+  .menu a:hover {
+    color: yellow;
+    background-color: darkolivegreen;
+  }
+  .main-list {
+    list-style: none;
+    padding: 0;
+  }
+  .container{
+    height: 550px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+
