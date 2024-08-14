@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải Phương Trình Bậc 2</title>
+    <script src="cau3.js" defer></script>
+    <style>
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 300px;
+            border: 2px solid;
+        }
+        table td {
+            border: 1px solid;
+            padding: 10px;
+            background-color: wheat;
+        }
+        table caption {
+            margin-bottom: 10px;
+        }
+        .result {
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>
+            <h2>CHƯƠNG TRÌNH GIẢI PHƯƠNG TRÌNH BẬC 2</h2>
+            <p><i><h3>ax<sup>2</sup> + bx + c = 0</h3></i></p>
+        </caption>
+        <tr>
+            <td>a =</td>
+            <td>
+                <input type="text" id="a">
+            </td>
+        </tr>
+        <tr>
+            <td>b =</td>
+            <td>
+                <input type="text" id="b">
+            </td>
+        </tr>
+        <tr>
+            <td>c =</td>
+            <td>
+                <input type="text" id="c">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button onclick="Giai()">Giải</button>
+                <button onclick="Xoa()">Xóa</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="result">
+                <div id="ketqua"></div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

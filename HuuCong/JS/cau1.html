@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         caption {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+        }
+        table td {
+            border: 1px solid;
+            padding: 10px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 1px;
+            margin: 5px 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function TinhTuoi(){
+            var ten=document.getElementById("txtTen").value;
+            var namsinh = parseInt(document.getElementById("txtNam").value);
+            var date = new Date();
+            if(ten==""){
+                alert("Tên chưa nhập !");
+                return false;
+            }
+            if(isNaN(namsinh)){
+                alert("Năm sinh không hợp lệ");
+                return false;
+            }
+            var tuoi = date.getFullYear()- namsinh;
+            document.getElementById("ketqua").innerHTML = "Chào " + ten +"! <br> Tuổi của bạn là "+ tuoi;
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <caption>Chương trình tính tuổi</caption>
+        <tr>
+            <td>Nhập vào tên của bạn</td>
+            <td>
+                <input type="text" id="txtTen" placeholder="Nhập tên">
+            </td>
+        </tr>
+        <tr>
+            <td>Nhập vào năm sinh của bạn</td>
+            <td>
+                <input type="text" id="txtNam" placeholder="Nhập năm sinh">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="TinhTuoi()">Kết quả</button>
+            </td>
+            <td>
+                <p id="ketqua"></p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
