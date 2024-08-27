@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        min-height: 200vh;
+        background-color: black;
+    }
+    header {
+            background-color: aqua;
+            padding: 20px;
+            height: 100px;
+            width: 100%;
+            position: relative;
+        }
+    header h1{
+        line-height: 100px;
+        text-align: left;
+        float: left;
+        font-size: 3em;
+        text-shadow: 3px 3px 5px gray;
+    }
+    header h2{
+        line-height: 100px;
+        text-align: right;
+        float: right;
+        margin-right: 50px;
+    }
+    td, table{
+        left: 0;    
+        border: 1px solid;
+    }
+    hr{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .main{
+        display: flex;
+        width: 100%;
+    }
+    .left{
+        border: 2px gray solid;
+        width: 21%;
+        background-color: black;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .left div{
+        margin-bottom: 20px;
+    }
+    .left div a{
+        display: block;
+        padding: 40px;
+        color: white;
+        background-color: #007bff;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .left div a:hover {
+        background-color: yellow;
+        color: red;
+        font-size: 1.3em;
+    }
+    .main-content{
+        background-color: black;
+        color: white;
+        font-size: 1.2em;
+        margin-left: 2px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .main-content h1{
+        text-align: center;
+        padding: 20px;
+        color: yellow;
+        border: 2px gray solid;
+        margin-bottom: 2px;
+    }
+    .main-content>.content{
+        border: 2px gray solid;
+        margin-bottom: 20px;
+        padding: 10px;
+        flex-grow: 1;
+    }
+    .content p{
+        margin: 10px;
+        text-indent: 20px;
+    }
+    footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+    }
+    .content img{
+        float: left;
+        height: 300px;
+        width: 350px;
+        margin: 10px;
+    }
+    .content img:hover{
+        height: 320px;
+        width: 370px;
+    }
+</style>
+<body>
+    <header>
+       <h1>Thi Giữa Kì</h1>
+       <h2>2351010025- Nguyễn Hữu Công</h2>
+    </header>
+    <hr>
+    <div class="main">
+        <div class="left">
+            <div><a href="#">Trang chủ</a></div>
+            <div> <a href="#">Thống kê mảng</a></div>
+        </div>
+        <div class="main-content">
+            <h1>Thế giới động vật</h1>
+            <div class="content">
+                <img src="css.jpg"> <img src="html.jpg"> <img src="javascript.jpg">
+                <p>Mèo, chính xác hơn là mèo nhà đế phân biệt với các loài trong họ Mèo khác, là động vật có vú nhỏ và ăn thịt, sống chung với loài người, được nuôi để săn vật gây hại hoặc làm thú nuôi. Người ta tin rằng tổ tiên
+                    trung gian gần nhất trước khi được thuần hóa của chúng là mèo rừng châu Phi (Felis silvestris lybica). Mèo nhà đã sống gần gũi với loài người ít
+                    nhất 9.500 năm, [4] và hiện nay chúng là con vật cưng phổ biến nhất trên thế giới.[5] </p>
+
+                <p>Có rất nhiều các giống mèo khác nhau, một số không có lông hoặc không có đuôi, và chúng tồn tại với rất nhiều màu lông. Mèo là những con
+                    vật có kỹ năng của thú săn mồi và được biết đến với khả năng săn bắt hàng nghìn loại sinh vật để làm thức ăn. Chúng đồng thời là những sinh vật
+                    thông minh, và có thể được dạy hay tự học cách sử dụng các công cụ đơn giản như mở tay nắm cửa hay giật nước trong nhà vệ sinh.</p>
+
+                <p>Mèo giao tiếp bằng cách kêu ("meo"/"mi-ao"), gù-gù, rít, gầm gừ và ngôn ngữ cơ thể. Mèo trong các bầy đàn sử dụng cả âm thanh lẫn ngôn
+                    ngữ cơ thế để giao tiếp với nhau.</p>
+
+                <p>Giống như một số động vật đã thuần hóa khác (như ngựa), mèo vẫn có thể sống tốt trong môi trường hoang dã như mèo hoang. Trái với quan
+                    niệm thông thường của mọi người rằng mèo là loài động vật cô độc, chúng thường tạo nên các đàn nhỏ trong môi trường hoang dã.</p>
+            </div>
+        </div>
+    </div>
+    <footer>2351010025 - Nguyễn Hữu Công</footer>
+</body>
+</html>

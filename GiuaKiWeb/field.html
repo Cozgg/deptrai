@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web</title>
+    <style>
+        /* CSS nội bộ */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .left, .right {
+            width: 45%;
+            background-color: antiquewhite;
+            border: 1px solid;
+        }
+        #view {
+            font-size: 40px;
+            text-align: center;
+            line-height: 6;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+         $(document).ready(function () {
+            // Xử lý khi nhấp vào phần tử danh sách
+            $("ol>li").click(function () {
+                // Lấy văn bản của phần tử được nhấp
+                var selectedText = $(this).text();
+                // Cập nhật phần tử #view với văn bản đã chọn
+                $("#view").text(selectedText);
+            });
+
+
+            // Xử lý thay đổi màu chữ
+            $("#textcolor").change(function () {
+                $("#view").css("color", $(this).val());
+            });
+
+            // Xử lý chuyển đổi bóng chữ
+            $("input[name='shadow']").change(function () {
+                if ($("#yes").is(":checked")) {
+                    $("#view").css("text-shadow", "3px 3px 5px grey");
+                } else {
+                    $("#view").css("text-shadow", "none");
+                }
+            });
+
+            // Xóa phần tử cuối danh sách
+            let deletedItems = [];
+            $("#btDel").click(function () {
+                let lastItem = $("#list li:last");
+                if (lastItem.length) {
+                    deletedItems.push(lastItem);
+                    lastItem.remove();
+                }
+            });
+
+            // Phục hồi phần tử cuối cùng bị xóa
+            $("#btUndo").click(function () {
+                if (deletedItems.length) {
+                    $("#list").append(deletedItems.pop());
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <fieldset>
+                <legend>Chọn</legend>
+                <p>
+                    <input type="radio" name="shadow" id="no" checked>Chữ bình thường
+                    <br>
+                    <input type="radio" name="shadow" id="yes">Chữ có bóng<br>
+                </p>
+                <p>
+                    Chọn màu chữ: <input type="color" id="textcolor" value="#0000ff">
+                </p>
+                <p>
+                    <button id="btDel">Xóa phần tử cuối</button>
+                    <button id="btUndo">Phục hồi</button>
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Nhấp vào một chuỗi</legend>
+                <ol id="list">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JAVASCRIPT</li>
+                    <li>JQUERY</li>
+                </ol>
+            </fieldset>
+        </div>
+        <div class="right">
+            <p id="view">HTML</p>
+        </div>
+    </div>
+</body>
+</html>

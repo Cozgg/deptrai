@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            margin: auto;
+            border: 1px solid black;
+        }
+        caption{
+            font-size: 25px;
+            font-weight: 900;
+        }
+        td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var html="<table><caption> BẢNG CỬU CHƯƠNG </caption>";
+        var count =2,row,col,i;
+        for(row =1 ;row<=2;row++) // tạo ra 2 dòng giống  đề bài
+        {
+            html +="<tr>";
+            for( col =1; col <=4;col++)
+            {
+                html+= "<td>";
+                for(i=1;i<=9;i++)
+                  html += count + "x" + i + " = " +count * i  + "<br>";
+                count++;
+                html +="</td>";
+            }
+            html +="</tr>";
+        }
+        html += "</table>";
+        document.write(html);
+    </script>
+</body>
+</html>

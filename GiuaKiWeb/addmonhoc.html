@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ 01</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                var str = "<li>" + $("#txtMonhoc").val() + "</li>";
+                $("ul").append(str); //thêm chuỗi str vào cuối nội dung trong <ul>
+                $("#txtMonhoc").val(""); //làm rỗng textbox
+            });
+        });
+    </script>
+    <P>
+        Tên môn học:<input type="text" id="txtMonhoc">
+    </P>
+    <ul>
+        <li>Python</li>
+        <li>PHP</li>
+    </ul>
+    <p>
+        <button>Thêm môn học</button>
+    </p>
+</body>
+</html>

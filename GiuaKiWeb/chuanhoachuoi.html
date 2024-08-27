@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h2> CHƯƠNG TRÌNH XỬ LÝ CHUỖI</h2>
+    <table>
+        <form action="" method="post">
+            <tbody>
+                <div class="input">
+                <tr>
+                    <td>Chuỗi S1:</td>
+                    <td>
+                        <input type="text" id="string1" name="string1" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Chuỗi S2:</td>
+                    <td>
+                        <input type="text" id="string2" name="string2" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Chuỗi S3:</td>
+                    <td>
+                        <input type="text" id="string3" name="string3" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Vị trí chèn:</td>
+                    <td>
+                        <input type="number" id="position" name="string3" value="">
+                    </td>
+                </tr>
+            </div>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <div class="funiction">
+                        <input type="button" id="s1"  value="Chuẩn hóa chuỗi" onclick="chuanhoa()">
+                        <input type="button" id="s2"  value="Đảo chuỗi" onclick="daochuoi()">
+                        <input type="button" id="s3"  value="Khôi phục" onclick="reset()"><br>
+                        <input type="button" id="s4"  value="Thay thế S2 bằng S3" onclick="thaythe23()">
+                        <input type="button" id="s5"  value="Chèn S2 vào S1" onclick="chen21()">
+                        <input type="button" id="s6"  value="Xóa S2 trong S1" onclick="xoa21()">
+                        </div>
+                    </td>
+                    </tr>
+                </tfoot>
+            </tbody>
+        </form>
+    </table>
+    <script>
+        function daochuoi(){
+            var s1 =document.getElementById("string1").value;
+            arr=s1.split(" "); // tách chuỗi vào mảng theo khoảng trắng
+            var i, kq="";
+            for(i =arr.length-1;i>=0;i--) // duyệt ngược
+                kq+=arr[i].trim()+ " ";
+                document.getElementById("string1").value =kq.trim();  // gán gtri xóa khoảng trắngcuối
+                var s2 =document.getElementById("string2").value;
+                 arr=s2.split(" "); 
+                 var i, kq="";
+                 for(i =arr.length-1;i>=0;i--) 
+                     kq+=arr[i].trim()+ " ";
+                     document.getElementById("string2").value =kq.trim();
+                     var s3 =document.getElementById("string3").value;
+                 arr=s3.split(" "); 
+                 var i, kq="";
+                 for(i =arr.length-1;i>=0;i--) 
+                     kq+=arr[i].trim()+ " ";
+                     document.getElementById("string3").value =kq.trim();
+        }
+        function chuanhoa(){
+            var s1 =document.getElementById("string1").value;
+            var s2 =document.getElementById("string2").value;
+            var s3 =document.getElementById("string3").value;
+            arr =s1.split(" ");
+            var i, kq="", tmp;
+            for( i=0;i<arr.length;i++)
+            {
+                tmp = arr[i].trim().toLowerCase(); //xóa space trc sau chuyen ve thuong
+                if(tmp!=""){ //hoa ki tu dau
+                    tmp=tmp.substr(0,1).toUpperCase() +tmp.substr(1);
+                    kq += tmp + " ";
+                }
+            }
+            document.getElementById("string1").value=kq.trim()
+            arr =s2.split(" ");
+            var i, kq="", tmp;
+            for( i=0;i<arr.length;i++)
+            {
+                tmp = arr[i].trim().toLowerCase(); //xóa space trc sau chuyen ve thuong
+                if(tmp!=""){ //hoa ki tu dau
+                    tmp=tmp.substr(0,1).toUpperCase() +tmp.substr(1);
+                    kq += tmp + " ";
+                }
+            }
+            document.getElementById("string2").value=kq.trim()
+            arr =s3.split(" ");
+            var i, kq="", tmp;
+            for( i=0;i<arr.length;i++)
+            {
+                tmp = arr[i].trim().toLowerCase(); //xóa space trc sau chuyen ve thuong
+                if(tmp!=""){ //hoa ki tu dau
+                    tmp=tmp.substr(0,1).toUpperCase() +tmp.substr(1);
+                    kq += tmp + " ";
+                }
+            }
+            document.getElementById("string3").value=kq.trim()
+        }
+        
+        function reset() {
+            Print(input);
+        }
+        function thaythe23() {
+            var s1 =document.getElementById("string1").value;
+            var s2 =document.getElementById("string2").value;
+            var s3 =document.getElementById("string3").value;
+            if(s2 == "") return;
+            var pos=s1.indexOf(s2) // tìm s3 trong s2
+            while( pos>=0)
+            {
+                s1 = s1.replace(s2,s3);
+                pos=s1.indexOf(s2);
+            }
+            document.getElementById("string1").value=s1;
+        }
+        function chen21() {
+            var position = parseInt(document.getElementById("position").value);
+            var S2 = document.getElementById("string2").value.trim();
+
+            var currentS1 = document.getElementById("string1").value;
+            console.log(currentS1);
+
+            currentS1 = currentS1.slice(0, position) + S2 + currentS1.slice(position);
+            // ABS2CDE
+            document.getElementById("string1").value=currentS1;
+        }
+        function xoa21() {
+            var S2 = document.getElementById("string2").value.trim();
+
+            var currentS1 = document.getElementById("string1").value;
+            console.log(currentS1);
+            var indexOfWordToDelete = currentS1.indexOf(S2);
+
+            currentS1 = currentS1.slice(0, indexOfWordToDelete) + currentS1.slice(indexOfWordToDelete + S2.length);
+            document.getElementById("string1").value=currentS1;
+        }
+    </script>
+    
+</body>
+</html>

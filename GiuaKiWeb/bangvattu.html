@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ 03</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table tr td {
+            width: 30%;
+            border: 1px solid #ff751a;
+            padding: 5px;
+        }
+        table tr th {
+            border: 1px solid #79ff4d;
+            padding: 5px;
+            background-color: aliceblue;
+        }
+        .newBrgd {
+            background-color: #ff0066;
+        }
+        caption {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#change").click(function() {
+                $("tr:odd").addClass("newBrgd");
+            });
+            $("#normal").click(function() {
+                $("tr:odd").removeClass("newBrgd");
+            });
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <caption>BẢNG GIÁ VẬT TƯ</caption>
+        <thead>
+            <tr>
+                <th>Tên vật tư</th>
+                <th>Đơn vị tính</th>
+                <th>Đơn giá</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cát</td>
+                <td>Khối</td>
+                <td>77,000</td>
+            </tr>
+            <tr>
+                <td>Đá</td>
+                <td>Khối</td>
+                <td>90,000</td>
+            </tr>
+            <tr>
+                <td>Xi măng Hà Tiên loại 1</td>
+                <td>Bao</td>
+                <td>120,000</td>
+            </tr>
+            <tr>
+                <td>Xi măng Hà Tiên loại 2</td>
+                <td>Bao</td>
+                <td>100,000</td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="change">Đổi màu nền</button>
+    <button id="normal">Màu nền mặc định</button>
+</body>
+</html>

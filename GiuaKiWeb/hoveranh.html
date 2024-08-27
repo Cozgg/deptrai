@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #container{
+            padding: 20px;
+        }
+        .panels, .panels a, .panels li{
+            height: 200px;
+            overflow: hidden;
+        }
+        .panels{
+            background-color: rgb(185, 179, 179);
+            position: relative;
+            margin: 0 0 20px;
+            width: 900px;
+        }
+        .panels li{
+            float: left;
+            text-align: center;
+            font-size: 100px;
+            list-style: none;
+            line-height: 200px;
+            width: 180px;
+        }
+        .panels li.last, .panels li:last-child{
+            border: 0;
+            float: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .panels a{
+            text-decoration: none;
+            color: rgb(83, 82, 82);
+            display: block;
+            width: 100%;
+            background: url(../Images/radial.png) no-repeat 0 200px;
+        }
+        .panels a:hover{
+            background-color: #bbb;
+            background-position: center-top;
+            color: #000;
+            font-weight: bold;
+            text-shadow: #fff 0 5px 5px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            var speed = 200;
+            $('ul.panels li:last-child').addClass('last');
+            $('ul.panels li').hover(function(){
+                $(this).stop().animate({
+                    width: '360px',
+                    fontSize: '150px'
+                }, speed)
+            .siblings('li').stop().animate({
+                width: '135px',
+                fontSize: '50px'
+            }, speed)
+            },
+            function(){
+                $(this).stop().animate({
+                     width: '180px',
+                    fontSize: '100px'
+                },speed)
+                .siblings('li').stop().animate({
+                    width: '180px',
+                    fontSize: '100px'
+                },speed)
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="container">
+        <ul class="panels">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+        </ul>
+        <ul class="panels">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+        </ul>
+        <ul class="panels">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        min-height: 200vh;
+        background-color: black;
+    }
+    header {
+            background-color: aqua;
+            padding: 20px;
+            height: 100px;
+            width: 100%;
+            position: relative;
+        }
+    header h1{
+        line-height: 100px;
+        text-align: left;
+        float: left;
+        font-size: 3em;
+        text-shadow: 3px 3px 5px gray;
+    }
+    header h2{
+        line-height: 100px;
+        text-align: right;
+        float: right;
+        margin-right: 50px;
+    }
+    hr{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .main{
+        display: inline-flex;
+        width: 100%;
+    }
+    .left{
+        border: 2px gray solid;
+        width: 21%;
+        background-color: black;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .left div{
+        margin-bottom: 20px;
+    }
+    .left div a{
+        display: block;
+        padding: 40px;
+        color: white;
+        background-color: #007bff;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .left div a:hover {
+        background-color: yellow;
+        color: red;
+        font-size: 1.3em;
+    }
+    .main-content{
+        background-color: black;
+        color: white;
+        font-size: 1.2em;
+        margin-left: 2px;
+        width: 100%;
+    }
+    .main-content h1{
+        text-align: center;
+        padding: 10px;
+        color: yellow;
+        border: 2px gray solid;
+        margin-bottom: 2px;
+    }
+    .main-content>.content{
+        border: 2px gray solid;
+        padding: 10px;
+    }
+    .content p{
+        margin: 10px;
+        text-indent: 20px;
+    }
+    .content img{
+        float: left;
+        height: 300px;
+        width: 350px;
+        margin: 10px;
+    }
+    .content img:hover{
+        height: 350px;
+        width: 370px;
+    }
+    footer {
+            text-align: center;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+    }
+    .content tr td{
+        background-color: pink;
+        align-items: center;
+        text-align: center;
+    }
+</style>
+<!-- <script>
+    function reverse(){
+        var s = document.getElementById("txtS").value;
+        arr = s.split(" "); //tach chuoi vao mang theo khoang trang
+        var i, kq = "";
+        for(i =arr. length - 1; i>=0;i--)//duyet nguoc tu phan tu cuoi mang ve dau
+            kq += arr[i].trim() + " "; //bo cac khoang trang thua
+            document.getElementById("txtS").value = kq.trim();
+    }
+    function normal(){
+        var s=document.getElementById("txtS").value;
+        arr = s.split(" ")//tach chuoi vao mang theo khoang trang
+        var i, kq = "",tmp;
+        for(i = 0; i< arr.length; i++)//duyet tu dau mang 
+        {
+            tmp = arr[i].trim().toLowerCase(); //xoa bo khoang trang troc sau tu, chuyen ve chu thuong
+            if(tmp != ""){//viet hoa chu cai dau
+                tmp = tmp.substr(0,1).toUpperCase() + tmp.substr(1);
+                kq += tmp + " ";
+            }
+        }
+        document.getElementById("txtS").value = kq.trim();//xoa khoang trang cuoi chuoi
+    }
+</script> -->
+<script>
+    let array = [];
+
+    function createArray() {
+        const numElements = document.getElementById("numElements").value;
+        array = [];
+        for (let i = 0; i < numElements; i++) {
+            array.push(Math.floor(Math.random() * 50) + 1);
+        }
+        document.getElementById("arrayDisplay").innerText = "Mảng: " + array.join(", ");
+    }
+
+    function removeEvenNumbers() {
+        array = array.filter(num => num % 2 !== 0);
+        document.getElementById("arrayDisplay").innerText = "Mảng: " + array.join(", ");
+    }
+
+    function rotateLeft() {
+        if (array.length > 0) {
+            const firstElement = array.shift();
+            array.push(firstElement);
+            document.getElementById("arrayDisplay").innerText = "Mảng: " + array.join(", ");
+        }
+    }
+
+    function rotateRight() {
+        if (array.length > 0) {
+            const lastElement = array.pop();
+            array.unshift(lastElement);
+            document.getElementById("arrayDisplay").innerText = "Mảng: " + array.join(", ");
+        }
+    }
+</script>
+<body>
+    <header>
+       <h1>Thi Giữa Kì</h1>
+       <h2>2351010025- Nguyễn Hữu Công</h2>
+    </header>
+    <hr>
+    <!-- <div class="main">
+        <table>
+            <caption>Thay thế chuỗi</caption>
+            <tr>
+                <td>Chuỗi ban đầu</td> 
+                <td>
+                    <input type="text" id="txtS" size="50">
+                </td>
+            </tr>
+            <tR>
+                <td><button onclick="reverse()">Đảo chuỗi</button></td>
+                <td><button onclick="normal()">Chuẩn hóa chuỗi</button></td>
+            </tR>
+        </table>
+    </div> -->
+    <div class="main">
+        <div class="left">
+            <div><a href="string.html">Trang chủ</a></div>
+            <div> <a href="string2.html">Thống kê mảng</a></div>
+        </div>
+        <div class="main-content">
+            <h1>Thống kê mảng</h1>
+            <div class="content">
+                   <table>
+                    <tr>
+                        <td>Nhập số phần tử</td>
+                        <td><input type="number" id="numElements" value="10" min="1" max="50"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="Tạo mảng" onclick="createArray()"></td>
+                        <td><p id="arrayDisplay"></p></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                        <input type="button" value="Xóa các số chẵn" onclick="removeEvenNumbers()">
+                        <input type="button" value="Quay trái" onclick="rotateLeft()">
+                        <input type="button" value="Quay phải" onclick="rotateRight()">
+                        </td>
+                    </tr>
+                   </table>
+            </div>
+        </div>
+    </div>
+    <footer>2351010025 - Nguyễn Hữu Công</footer>
+</body>
+</html>

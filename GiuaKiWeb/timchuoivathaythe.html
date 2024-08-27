@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm Kiếm Và Thay Thế Chuỗi</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        fieldset {
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            var strOrigin = $("#content").html();
+            
+            $("#btSearch").click(function(){
+                searchAndReplace();
+            });
+
+            $("#btReplace").click(function(){
+                $("#content").html(strOrigin);
+            });
+        });
+
+        function searchAndReplace(){
+            var content = $("#content").html();
+            var strSearch = $("#txtSearch").val();
+            var strReplace = $("#txtReplace").val();
+            var isCaseSensitive = $("#chkCase").is(":checked");
+
+            // Tạo mẫu regex để tìm kiếm chuỗi
+            var regex;
+            if (isCaseSensitive) {
+                regex = new RegExp(strSearch, "g"); // Phân biệt chữ hoa chữ thường
+            } else {
+                regex = new RegExp(strSearch, "gi"); // Không phân biệt chữ hoa chữ thường
+            }
+
+            // Thay thế theo mẫu regex
+            var replacedContent = content.replace(regex, strReplace);
+            $("#content").html(replacedContent);
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend><h1>Tìm Kiếm Và Thay Thế Chuỗi</h1></legend>
+        <p>
+            <input type="text" id="txtSearch" placeholder="Nhập từ khóa cần tìm">
+            <input type="checkbox" id="chkCase"> Có phân biệt chữ hoa chữ thường
+        </p>
+        <p>
+            <input type="text" id="txtReplace" placeholder="Nhập từ cần thay thế">
+        </p>
+        <p>
+            <button id="btSearch">Tìm Và Thay Thế</button>
+            <button id="btReplace">Khôi Phục</button>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend><h1>Chuỗi Văn Bản</h1></legend>
+        <div id="content">
+            Cơ sở lập trình là môn học nền tảng giúp sinh viên hiểu rõ các
+            khái niệm cơ bản về lập trình. Môn học này bao gồm các chủ đề như
+            biến, hàm, điều kiện, vòng lặp, và các cấu trúc dữ liệu cơ bản.
+            Sinh viên sẽ được làm quen với một ngôn ngữ lập trình cụ thể như
+            C++ hoặc Python, và học cách sử dụng các công cụ lập trình để viết
+            mã và giải quyết các bài toán đơn giản. Ngoài ra, môn học còn giúp
+            sinh viên phát triển kỹ năng tư duy logic và phân tích vấn đề, từ
+            đó xây dựng được những bước đầu tiên vững chắc trong sự nghiệp lập
+            trình. Việc nắm vững các kiến thức cơ bản này là điều kiện tiên
+            quyết để sinh viên có thể tiếp tục học các môn học lập trình nâng
+            cao hơn, cũng như tham gia vào các dự án lập trình thực tế.
+        </div>
+    </fieldset>
+</body>
+</html>

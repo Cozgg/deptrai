@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    var ballWidth;//chieu rong hinh
+    var ballHeight;//chieu cao hinh
+    var dx = 5;//do doi ngang khi di chuyen
+    var dy = 10;// do doi doc khi di chuyen
+    var intervalId; // luu bien intervalid de kiem soat dung bong
+    var initialLeft = 100;// Vị trí ban đầu của bóng theo chiều ngang
+    var initialTop = 100;// Vị trí ban đầu của bóng theo chiều dọc
+    var isCircle = true; // Biến để kiểm tra xem hình hiện tại là tròn hay vuông
+
+    $(document).ready(function(){
+        ballWidth = $("#ball").width();
+        ballHeight = $("#ball").height();
+    });
+
+    function Play(){
+        var frameW = $("#frame").width();
+        var frameH = $("#frame").height();
+        var ballLeft = parseInt($("#ball").css("left"));
+        var ballTop = parseInt($("#ball").css("top"));
+
+        if (ballLeft < 0 || (ballLeft + ballWidth) >= frameW) // dung hai bien trai
+            dx = -dx;
+        if (ballTop <= 0 || (ballTop + ballHeight) > frameH) //dung bien tren, bien duoi
+            dy = -dy;
+
+        $("#ball").css("left", ballLeft + dx + "px");
+        $("#ball").css("top", ballTop + dy + "px");
+    }
+
+    function startAnimation() {
+        if (!intervalId) { // Bắt đầu chỉ khi interval chưa chạy
+            intervalId = setInterval(Play, 100);
+        }
+    }
+
+    function stopAnimation() {
+        clearInterval(intervalId); // Dừng interval
+        intervalId = null; // Đặt lại interval ID
+    }
+
+    function resetAnimation(){
+        stopAnimation(); // Dừng lại nếu đang chạy
+        // Đưa bóng về vị trí ban đầu
+        $("#ball").css("left", initialLeft + "px");
+        $("#ball").css("top", initialTop + "px");
+    }
+
+    function changeBall() {
+        if (isCircle) {
+            // Đổi hình từ tròn sang vuông
+            $("#ball").html(""); // Xóa nội dung SVG
+            $("#ball").css({
+                "background-color": "red",
+                "border-radius": "0"
+            });
+        } else {
+            // Đổi hình từ vuông sang tròn
+            $("#ball").html('<circle cx="30" cy="30" r="30" stroke="red" fill="red"/>');
+            $("#ball").css({
+                "background-color": "",
+                "border-radius": "50%"
+            });
+        }
+        isCircle = !isCircle;
+    }
+</script>
+<style>
+    #frame {
+        border: 1px solid;
+        background-color: #ddd;
+        margin: 20px;
+        height: 400px;
+        position: relative;
+    }
+    #ball {
+        width: 60px;
+        height: 60px;
+        left: 100px;
+        top: 100px;
+        position: absolute;
+    }
+    button {
+        margin: 20px;
+        padding: 10px 20px;
+    }
+</style>
+<body>
+    <div id="frame">
+        <svg id="ball"><circle cx="30" cy="30" r="30" stroke="red" fill="red"/></svg>
+    </div>
+    <button onclick="startAnimation()">Bắt đầu</button>
+    <button onclick="stopAnimation()">Dừng lại</button>
+    <button onclick="resetAnimation()">Reset</button>
+    <button onclick="changeBall()">Đổi hình</button>
+</body>
+</html>
